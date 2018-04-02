@@ -5,9 +5,9 @@
 
 A robot has been kidnapped and transported to a new location! Luckily it has a map of this location, a (noisy) GPS estimate of its initial location, and lots of (noisy) sensor and control data.
 
-In this project I will implement a 2 dimensional particle filter in C++. The particle filter will be given a map and some initial localization information (analogous to what a GPS would provide). At each time step your filter will also get observation and control data.
+In this project I will implement a 2 dimensional particle filter in C++. The particle filter will be given a map and some initial localization information (analogous to what a GPS would provide). At each time step the filter will also get observation and control data.
 
-This project involves the Term 2 Simulator which can be downloaded [here](https://github.com/udacity/self-driving-car-sim/releases) . Included in the [Kidnapped Vehicle project Github repository](https://github.com/wiwawo/CarND-Kidnapped-Vehicle-Project.git) are program files that are used to communicate with the simulator. The simulator provides the script the noisy position data, vehicle controls, and noisy observations. the script feeds back the best particle state.
+This project involves the Term 2 Simulator which can be downloaded [here](https://github.com/udacity/self-driving-car-sim/releases) . Included in this repository are program files that are used to communicate with the simulator. The simulator provides the script the noisy position data, vehicle controls, and noisy observations. the script feeds back the best particle state.
 
 The simulator can also display the best particle's sensed positions, along with the corresponding map ID associations. This can be extremely helpful when making sure transition and association calculations were done correctly.
 
