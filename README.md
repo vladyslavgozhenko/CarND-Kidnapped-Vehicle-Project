@@ -16,29 +16,29 @@ Tips for setting up your environment can be found [here](https://classroom.udaci
 ## Algoritm
 
 INPUT: values provided by the simulator to the c++ program.
-
-  ["sense_x", "sense_y", "sense_theta", "previous_velocity", "previous_yawrate"] => the measurements that the simulator observs.
-  "sense_x", "sense_y" - noisy gps coordinates of the car,
-  "sense_theta" - noisy car orientation,
-  "previous velocity" - car velocity,
-  "previous_yawrate" - car turning speed.
+    
+    ["sense_x", "sense_y", "sense_theta", "previous_velocity", "previous_yawrate"] => the measurements that the simulator observs:
+    "sense_x", "sense_y" - noisy gps coordinates of the car;
+    "sense_theta" - noisy car orientation;
+    "previous velocity" - car velocity;
+    "previous_yawrate" - car turning speed.
 
 OUTPUT: coordinates of the particles.
 
-  x, y, θ.
+    x, y, θ.
 
 PREDICTION: particles' positions in the next moment t1=t1+dt are calculated using following formula:
-
-  x​=sense_x​+previous velocity/previous_yawrate*​[sin(sense_theta+previous_yawrate*dt)−sin(sense_theta​)]+x_noise,
-  y=sense_y+previous velocity/previous_yawrate*[cos(sense_theta)−cos(sense_theta+previous_yawrate*dt)]+y_noise,
-  θ=sense_theta+previous_yawrate*dt+theta_noise.
+    
+    x=sense_x+previous velocity/previous_yawrate*[sin(sense_theta+previous_yawrate*dt)−sin(sense_theta)]+x_noise;
+    y=sense_y+previous velocity/previous_yawrate*[cos(sense_theta)−cos(sense_theta+previous_yawrate*dt)]+y_noise;  
+    θ=sense_theta+previous_yawrate*dt+theta_noise.
 
 LANDMARKS: observed landmarks by the car have coordinates xc, yc, where the point (0,0) is the car itself,
 but x,y,θ coordinates of the car are in map coordinate system. Therefore transformation of the  
 landmarks' coordinates to map coordinates should be done. The following formula was used for this:
 
-   xm = x + cos θ * xc - sin θ * yc,
-   ym = y + sin θ * xc + cos θ * yc.
+    xm = x + cos θ * xc - sin θ * yc,
+    ym = y + sin θ * xc + cos θ * yc.
 
 ASSOCIATION: the car has a map with the landmarks. Using Nearest Neighbor Method observations can be
 associated with landmarks on the map.
@@ -55,11 +55,12 @@ RESAMPLING: every iteration some particles will be deleted. "Survival" probabili
 The bigger weight, the highter probability for a particle to get to the next iteration.
 
 On the animation in the beginning of this page are shown:
-    a blue vehicle;
-    observations (green lines);
-    map objects (circles with crosses);
-    blue circle is predicted position of the vehicle based on observation and the best particle position;
-    blue lines show association of map objects and observations.
+
+  * a blue vehicle;
+  * observations (green lines);
+  * map objects (circles with crosses);
+  * blue circle is predicted position of the vehicle based on observation and the best particle position;
+  * blue lines show association of map objects and observations.
 
  As it can be seen, particle filters localized the car fast and reliably.
 
